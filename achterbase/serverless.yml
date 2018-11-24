@@ -7,7 +7,8 @@ provider:
   runtime: nodejs8.10
   profile: cook-it-serverless-admin
   environment:
-    RECIPES_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+    RECIPES_TABLE: ${self:service}-recipes-${opt:stage, self:provider.stage}
+    RECIPES_IMG_BUCKET: ${self:service}-img-${opt:stage, self:provider.stage}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -42,3 +43,7 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
+    ImagesS3Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:provider.environment.RECIPES_IMG_BUCKET}
