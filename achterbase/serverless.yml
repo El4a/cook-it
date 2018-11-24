@@ -8,7 +8,7 @@ plugins:
 provider:
   stage: dev
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs8.10
   profile: cook-it-serverless-admin
   region: eu-west-2
   timeout: 1
