@@ -1,9 +1,9 @@
 // eslint-disable-next-line import/prefer-default-export
-import AWS from 'aws-sdk';
+const AWS = require('aws-sdk');
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 
-export const get = async () => {
+module.exports.get = async () => {
 
   const params = {TableName: process.env.RECIPES_TABLE};
 
