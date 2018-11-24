@@ -1,7 +1,5 @@
 // eslint-disable-next-line import/prefer-default-export
-export const get = async (event, context) => {
-  console.log('event', event);
-  console.log('context', context);
+export const get = async () => {
 
   return {
     statusCode: 200,
