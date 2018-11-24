@@ -15,9 +15,9 @@ provider:
   memorySize: 128
 
 functions:
-  second:
-    handler: second.hello
+  getRecipes:
+    handler: recipes.get
     events:
       - http:
           method: get
-          path: second
+          path: recipes
