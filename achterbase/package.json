@@ -1,5 +1,12 @@
 {
   "name": "cook-it",
   "version": "1.0.0",
-  "description": "Dietvira fun"
+  "description": "Dietvira fun",
+  "devDependencies": {
+    "serverless": "~1.33.2"
+  },
+  "scripts": {
+    "deploy": "serverless deploy -v",
+    "remove": "serverless remove"
+  }
 }
