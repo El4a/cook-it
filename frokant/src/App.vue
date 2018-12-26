@@ -2,19 +2,21 @@
   <div id="app">
     <img class="banner" alt="banner" src="./assets/banner.png">
     <Navigation/>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="container">
+    </div>
+    <typefilter/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import Navigation from './components/navigation.vue'
+import Typefilter from './components/type-filter.vue'
 
 export default {
   name: 'app',
   components: {
     Navigation,
-    HelloWorld
+    Typefilter
   },
   head: {
     link: [
@@ -26,10 +28,22 @@ export default {
 </script>
 
 <style lang="scss">
-
+@import "/assets/vars.scss";
 body {
   margin: 0;
-  background-color: rgba(226,219,219,.5);
+  background-color: $color-background;
+}
+
+#app {
+  position: relative;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1300px;
+  margin: auto;
+  padding-bottom: 60px; //for type filter
+  position: relative;
 }
 
 .banner {
