@@ -8,7 +8,7 @@
       <a href="javascript:void()">Breakfast</a>
     </div>
 
-    <button role="button" class="fas fa-plus fa-2x"></button>
+    <button role="button" class="fas fa-plus fa-2x hvr-bob"></button>
   </div>
 </template>
 
@@ -20,6 +20,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/vars.scss";
+@import "../assets/effects.css";
 
   .wrapper {
     position: fixed;
@@ -59,6 +60,10 @@ export default {
       color: $color-theme;
       border: 3px solid $color-background;
       border-radius: 100%;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
   }
