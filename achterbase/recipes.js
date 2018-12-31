@@ -11,12 +11,22 @@ module.exports.get = async () => {
     let result = await dynamoDb.scan(params).promise();
     return {
       statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true,
+      },
       body: JSON.stringify(result.Items)
     };
   } catch (e) {
     return {
       statusCode: 500,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true,
+      },
       body: "Did someone drop our table?? " + e
     };
   } 
 };
+
+//what does this do again? 
