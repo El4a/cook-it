@@ -3,20 +3,23 @@
     <img class="banner" alt="banner" src="./assets/banner.png">
     <Navigation/>
     <div class="container">
+      <Recipes/>
     </div>
-    <typefilter/>
+    <Typefilter/>
   </div>
 </template>
 
 <script>
 import Navigation from './components/navigation.vue'
 import Typefilter from './components/type-filter.vue'
+import Recipes from './components/recipes.vue'
 
 export default {
   name: 'app',
   components: {
     Navigation,
-    Typefilter
+    Typefilter,
+    Recipes
   },
   head: {
     link: [
