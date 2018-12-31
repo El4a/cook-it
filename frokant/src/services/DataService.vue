@@ -9,8 +9,10 @@
         try {
           const response = await axios.get(baseURL+'recipes');
           console.log(response);
+          return response;
         } catch (error) {
           console.error(error);
+          return error;
         }
       }
   };

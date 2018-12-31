@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{this.recipes}}
   </div>
 </template>
 
@@ -14,8 +15,12 @@ export default {
   },
   methods: {
     getRecipes() {
+      console.log('ok');
       return DataService.getRecipes()
-        .then(recipes => this.recipes = recipes)
+        .then((recipes) => {
+          console.log('comp:', recipes.data);
+          this.recipes = recipes.data
+          })
         .catch(err => this.errMsg = err)
     }
   },
