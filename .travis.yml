@@ -1,8 +1,9 @@
 language: node_js
 
 before_install:
-  - npm install -g npm@11.2 
+  # - npm install -g npm@11.2 
   - cd frokant
+  - nvm use
 
 before_script: cd frokant
 script: npm run build
