@@ -1,5 +1,5 @@
 <template>
-  <div class='wrapper'>
+  <div class='filter-wrapper'>
     <div class="types">
       <a href="javascript:void()">Drinks</a>
       <a href="javascript:void()" class="active">Appetizers</a>
@@ -22,7 +22,7 @@ export default {
 @import "../assets/vars.scss";
 @import "../assets/effects.css";
 
-  .wrapper {
+  .filter-wrapper {
     position: fixed;
     bottom: 0;
     width: 100%;
