@@ -1,6 +1,6 @@
 <template>
   <div class="recipe-wrapper">
-    <div class="recipe" v-for="recipe in recipes">
+    <div class="recipe" v-for="recipe in filteredRecipes">
       <div class="content">
         <div class="img-container">
           <img :src="recipe.imgUrl"/>
@@ -21,18 +21,21 @@ import DataService from '@/services/DataService';
 export default {
   data: () => {
     return {
-        allrecipes: [],
         recipes: [],
-        errMsg: ''
+        filter: null,
+        errMsg: '',
       }
+  },
+  computed: {
+    filteredRecipes() {
+      return this.filter ? this.recipes.filter((recipe) => { if (recipe[this.filter]) return }) : this.recipes;
+    }
   },
   methods: {
     getRecipes() {
-      console.log('ok');
       return DataService.getRecipes()
         .then((recipes) => {
           console.log(recipes.data);
-          this.allrecipes = recipes.data;
           this.recipes = recipes.data
           })
         .catch(err => this.errMsg = err)
@@ -42,11 +45,8 @@ export default {
     this.getRecipes();
   },
   mounted() {
-    this.$root.$on('eventing', data => {
-        this.recipes = this.recipes.filter((recipe) => {
-          if (recipe.favorite === true)
-            return recipe;
-        })
+    this.$root.$on('eventing', filter => {
+        this.filteredRecipes(filter);
     });
   }
 }
@@ -91,6 +91,7 @@ export default {
       }
       .fa-stopwatch {
         font-size: .85rem;
+        color: $color-meta;
         &:before {
           margin-right: .25rem;
         }
@@ -112,7 +113,7 @@ export default {
       position: absolute;
       bottom: .5rem;
       right: 1rem;
-      color: $color-text;
+      color: $color-meta;
       font-size: 1.5rem;
       cursor: pointer;
 
