@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     filteredRecipes() {
-      return this.filter ? this.recipes.filter((recipe) => { recipe[this.filter] }) : this.recipes;
+      return this.filter ? this.recipes.filter(recipe => recipe[this.filter]) : this.recipes;
     }
   },
   methods: {
@@ -46,7 +46,7 @@ export default {
   },
   mounted() {
     this.$root.$on('eventing', filter => {
-        this.filteredRecipes(filter);
+        this.filter = filter;
     });
   }
 }

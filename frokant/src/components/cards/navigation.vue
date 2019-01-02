@@ -2,13 +2,16 @@
   <nav role="navigation">
     <ul>
       <li>
-        <a href="javscript:void()" class="active">Public</a>
+        <a href="javscript:void()" class="active" @click="changeCategory('')">All</a>
+      </li>
+      <li>
+        <a href="javscript:void()" @click="changeCategory('published')">Public</a>
       </li>
       <li>
         <a href="javscript:void()">Mine</a>
       </li>
       <li>
-        <a href="javscript:void()" @click="testfilter('fav')">Favorites</a>
+        <a href="javscript:void()" @click="changeCategory('favorite')">Favorites</a>
       </li>
     </ul>
   </nav>
@@ -21,9 +24,8 @@ export default {
     
   },
   methods: {
-    testfilter(e) {
-      console.log(e);
-      this.$root.$emit('eventing', e);
+    changeCategory(cat) {
+      this.$root.$emit('eventing', cat);
     }
   }
 }
