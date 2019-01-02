@@ -8,7 +8,7 @@
       <a href="javascript:void()">Breakfast</a>
     </div>
 
-    <button role="button" class="fas fa-plus fa-2x hvr-bob"></button>
+    <router-link to="/new" tag="button" role="button" class="fas fa-plus fa-2x hvr-bob" ></router-link>
   </div>
 </template>
 
@@ -19,8 +19,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/vars.scss";
-@import "../assets/effects.css";
+@import "../../assets/vars.scss";
+@import "../../assets/effects.css";
 
   .filter-wrapper {
     position: fixed;

@@ -21,6 +21,7 @@ import DataService from '@/services/DataService';
 export default {
   data: () => {
     return {
+        allrecipes: [],
         recipes: [],
         errMsg: ''
       }
@@ -30,7 +31,8 @@ export default {
       console.log('ok');
       return DataService.getRecipes()
         .then((recipes) => {
-          console.log('comp:', recipes.data);
+          console.log(recipes.data);
+          this.allrecipes = recipes.data;
           this.recipes = recipes.data
           })
         .catch(err => this.errMsg = err)
@@ -38,12 +40,20 @@ export default {
   },
   created() {
     this.getRecipes();
+  },
+  mounted() {
+    this.$root.$on('eventing', data => {
+        this.recipes = this.recipes.filter((recipe) => {
+          if (recipe.favorite === true)
+            return recipe;
+        })
+    });
   }
 }
 </script>
 
 <style scoped lang="scss">
-  @import "../assets/vars.scss";
+  @import "../../assets/vars.scss";
   .recipe-wrapper {
     display: flex;
     justify-content: flex-start;

@@ -8,7 +8,7 @@
         <a href="javscript:void()">Mine</a>
       </li>
       <li>
-        <a href="javscript:void()">Favorites</a>
+        <a href="javscript:void()" @click="testfilter('fav')">Favorites</a>
       </li>
     </ul>
   </nav>
@@ -19,13 +19,19 @@ export default {
   //name: 'navigation', //why do you need a name here - works without
   props: {
     
+  },
+  methods: {
+    testfilter(e) {
+      console.log(e);
+      this.$root.$emit('eventing', e);
+    }
   }
 }
 </script>
 
 
 <style lang="scss">
-@import "../assets/vars.scss";
+@import "../../assets/vars.scss";
 
 nav {
   margin-top: -3.5rem;
