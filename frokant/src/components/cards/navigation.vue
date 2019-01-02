@@ -2,7 +2,8 @@
   <nav role="navigation">
     <ul>
       <li>
-        <a href="javscript:void()" class="active" @click="changeCategory('')">All</a>
+        <router-link :to="{ name: 'publicRecipes', params: { category: 'test' }}" class="active">All</router-link>
+        <!-- <a href="javscript:void()" class="active" @click="changeCategory()">All</a> -->
       </li>
       <li>
         <a href="javscript:void()" @click="changeCategory('published')">Public</a>
@@ -25,6 +26,7 @@ export default {
   },
   methods: {
     changeCategory(cat) {
+      console.log(event.target);
       this.$root.$emit('eventing', cat);
     }
   }

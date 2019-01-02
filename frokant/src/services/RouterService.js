@@ -18,6 +18,12 @@ export default new Router({
       component: Main,
     },
     {
+      path: '/recipes/public',
+      name: 'publicRecipes',
+      component: Main,
+      props: true
+    },
+    {
       path: "/new",
       name: 'new',
       component: AddNew

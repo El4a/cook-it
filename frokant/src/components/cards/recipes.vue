@@ -1,5 +1,6 @@
 <template>
   <div class="recipe-wrapper">
+    {{category}}
     <div class="recipe" v-for="recipe in filteredRecipes">
       <div class="content">
         <div class="img-container">
@@ -26,6 +27,7 @@ export default {
         errMsg: '',
       }
   },
+  props: ['category'],
   computed: {
     filteredRecipes() {
       return this.filter ? this.recipes.filter(recipe => recipe[this.filter]) : this.recipes;

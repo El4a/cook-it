@@ -1,8 +1,9 @@
 <template>
   <div id="main">
     <Navigation/>
+    {{this.category}}
     <div class="container">
-      <Recipes/>
+      <Recipes :category="category"/>
     </div>
     <Typefilter/>
   </div>
@@ -18,7 +19,10 @@
       'Navigation': Navigation,
       'Typefilter': Typefilter,
       'Recipes': Recipes
-    }
+    },
+    props: [
+      'category'
+    ]
   }
 </script>
 
