@@ -26,7 +26,7 @@ export default {
         errMsg: '',
       }
   },
-  props: ['category'],
+  props: ['category'], //var comes from navigation to know on what to filter
   computed: {
     filteredRecipes() {
       return this.category ? this.recipes.filter(recipe => recipe[this.category]) : this.recipes;

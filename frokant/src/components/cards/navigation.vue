@@ -2,7 +2,7 @@
   <nav role="navigation">
     <ul>
       <li>
-        <router-link :to="{ name: 'recipes', params: { category: null }}" class="active">All</router-link>
+        <router-link :to="{ name: 'recipes', params: { category: null }}" exact>All</router-link>
         <!-- <a href="javscript:void()" class="active" @click="changeCategory()">All</a> -->
       </li>
       <li>
@@ -61,11 +61,11 @@ nav {
         text-decoration: none;
         color: #fff;
 
-        &.active {
+        &.router-link-active {
           background-color: $color-theme;
         }
 
-        &:not(.active):hover {
+        &:not(.router-link-active):hover {
           color: $color-theme;
         }
       }
