@@ -9,7 +9,7 @@
           <h1>{{recipe.title}}</h1>
           <span class="fas fa-stopwatch">{{recipe.time ? recipe.time : '??'}} </span>
         </div>
-        <span class="type-tag">Main</span>
+        <span class="type-tag" v-if="recipe.type">{{recipe.type | capitalize}}</span>
         <span class="favo fa-heart" v-bind:class="[ recipe.favorite ? '-yes fas' : 'far'  ]"></span>
       </div>
     </div>
@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     filteredRecipes() {
-      return this.filter ? this.recipes.filter((recipe) => { if (recipe[this.filter]) return }) : this.recipes;
+      return this.filter ? this.recipes.filter((recipe) => { recipe[this.filter] }) : this.recipes;
     }
   },
   methods: {
@@ -100,7 +100,7 @@ export default {
     }
     .type-tag {
       border-radius: 1px;
-      padding: 0 .3rem;
+      padding: .1rem .3rem;
       background-color: green;
       color: #fff;
       font-size: .85rem;
