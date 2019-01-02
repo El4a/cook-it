@@ -1,11 +1,12 @@
 <template>
   <div class='filter-wrapper'>
     <div class="types">
-      <a href="javascript:void()">Drinks</a>
-      <a href="javascript:void()" class="active">Appetizers</a>
-      <a href="javascript:void()">Main</a>
-      <a href="javascript:void()">Dessert</a>
-      <a href="javascript:void()">Breakfast</a>
+      <a href="javascript:void()" @click="changeCategory(null)">All</a>
+      <a href="javascript:void()" @click="changeCategory('drinks')">Drinks</a>
+      <a href="javascript:void()" class="active" @click="changeCategory('amuse')">Appetizers</a>
+      <a href="javascript:void()" @click="changeCategory('main')">Main</a>
+      <a href="javascript:void()" @click="changeCategory('dessert')">Dessert</a>
+      <a href="javascript:void()" @click="changeCategory('breakfast')">Breakfast</a>
     </div>
 
     <router-link to="/new" tag="button" role="button" class="fas fa-plus fa-2x hvr-bob" ></router-link>
@@ -14,7 +15,11 @@
 
 <script>
 export default {
-
+  methods: {
+    changeCategory(type) {
+      this.$root.$emit('eventing', type);
+    }
+  }
 }
 </script>
 

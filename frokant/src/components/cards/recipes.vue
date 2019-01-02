@@ -1,7 +1,7 @@
 <template>
   <div class="recipe-wrapper">
     {{this.errMsg}}
-    <div class="recipe" v-for="recipe in filteredRecipes">
+    <div class="recipe" v-for="recipe in filteredRecipes" :key="recipe.id">
       <div class="content">
         <div class="img-container">
           <img :src="recipe.imgUrl"/>
@@ -10,7 +10,7 @@
           <h1>{{recipe.title}}</h1>
           <span class="fas fa-stopwatch">{{recipe.time ? recipe.time : '??'}} </span>
         </div>
-        <span class="type-tag" v-if="recipe.type">{{recipe.type | capitalize}}</span>
+        <span class="type-tag" :class="recipe.type" v-if="recipe.type">{{recipe.type | capitalize}}</span>
         <span class="favo fa-heart" v-bind:class="[ recipe.favorite ? '-yes fas' : 'far'  ]"></span>
       </div>
     </div>
@@ -23,14 +23,15 @@ export default {
   data: () => {
     return {
         recipes: [],
-        //filter: null, will need this again for type filters
+        filter: null, //for type of dish
         errMsg: '',
       }
   },
-  props: ['category'], //var comes from navigation to know on what to filter
+  props: ['category'], //var comes from navigation to know on what category to filter
   computed: {
     filteredRecipes() {
-      return this.category ? this.recipes.filter(recipe => recipe[this.category]) : this.recipes;
+      let filteredByCategory = this.category ? this.recipes.filter(recipe => recipe[this.category]) : this.recipes;
+      return this.filter ? filteredByCategory.filter(recipe => recipe.type === this.filter) : filteredByCategory;
     }
   },
   methods: {
@@ -38,7 +39,6 @@ export default {
       try {
         let response = await DataService.getRecipes();
         this.recipes = response.data;
-        console.log(response.data)
       }
       catch (error) {
         this.errMsg = error;
@@ -50,10 +50,12 @@ export default {
     this.getRecipes();
   },
   mounted() {
-    //NEEDED again for type filtering; was: category filter
-    // this.$root.$on('eventing', filter => {
-    //     this.filter = filter;
-    // });
+    /**
+     * filtering on type
+     */
+    this.$root.$on('eventing', filter => {
+        this.filter = filter;
+    });
   }
 }
 </script>
@@ -107,12 +109,27 @@ export default {
     .type-tag {
       border-radius: 1px;
       padding: .1rem .3rem;
-      background-color: green;
       color: #fff;
       font-size: .85rem;
       position: absolute;
       bottom: .5rem;
       left: 1rem;
+
+      &.drinks {
+        background-color: $color-drinks;
+      }
+      &.amuse {
+        background-color: $color-amuse;
+      }
+      &.main {
+        background-color: $color-main;
+      }
+      &.dessert {
+        background-color: $color-dessert;
+      }
+      &.breakfast {
+        background-color: $color-breakfast;
+      }
     }
 
     .favo {
