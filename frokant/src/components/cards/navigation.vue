@@ -2,17 +2,17 @@
   <nav role="navigation">
     <ul>
       <li>
-        <router-link :to="{ name: 'publicRecipes', params: { category: 'test' }}" class="active">All</router-link>
+        <router-link :to="{ name: 'recipes', params: { category: null }}" class="active">All</router-link>
         <!-- <a href="javscript:void()" class="active" @click="changeCategory()">All</a> -->
       </li>
       <li>
-        <a href="javscript:void()" @click="changeCategory('published')">Public</a>
+        <router-link :to="{ name: 'publicRecipes', params: { category: 'published' }}">Public</router-link>
       </li>
       <li>
-        <a href="javscript:void()">Mine</a>
+        <router-link :to="{ name: 'myRecipes', params: { category: 'mine' }}">Mine</router-link>
       </li>
       <li>
-        <a href="javscript:void()" @click="changeCategory('favorite')">Favorites</a>
+        <router-link :to="{ name: 'favoriteRecipes', params: { category: 'favorite' }}">Favorites</router-link>
       </li>
     </ul>
   </nav>
@@ -25,10 +25,10 @@ export default {
     
   },
   methods: {
-    changeCategory(cat) {
-      console.log(event.target);
-      this.$root.$emit('eventing', cat);
-    }
+    // changeCategory(cat) {
+    //   console.log(event.target);
+    //   this.$root.$emit('eventing', cat);
+    // }
   }
 }
 </script>

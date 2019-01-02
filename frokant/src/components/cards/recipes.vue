@@ -1,6 +1,5 @@
 <template>
   <div class="recipe-wrapper">
-    {{category}}
     <div class="recipe" v-for="recipe in filteredRecipes">
       <div class="content">
         <div class="img-container">
@@ -23,14 +22,14 @@ export default {
   data: () => {
     return {
         recipes: [],
-        filter: null,
+        //filter: null, will need this again for type filters
         errMsg: '',
       }
   },
   props: ['category'],
   computed: {
     filteredRecipes() {
-      return this.filter ? this.recipes.filter(recipe => recipe[this.filter]) : this.recipes;
+      return this.category ? this.recipes.filter(recipe => recipe[this.category]) : this.recipes;
     }
   },
   methods: {
@@ -47,9 +46,10 @@ export default {
     this.getRecipes();
   },
   mounted() {
-    this.$root.$on('eventing', filter => {
-        this.filter = filter;
-    });
+    //NEEDED again for type filtering; was: category filter
+    // this.$root.$on('eventing', filter => {
+    //     this.filter = filter;
+    // });
   }
 }
 </script>

@@ -1,7 +1,6 @@
 <template>
   <div id="main">
     <Navigation/>
-    {{this.category}}
     <div class="container">
       <Recipes :category="category"/>
     </div>

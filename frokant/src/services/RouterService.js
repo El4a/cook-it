@@ -16,10 +16,23 @@ export default new Router({
       path: '/recipes',
       name: 'recipes', //also doesnt seem necessary BUT is saved on the $this.route object so useful for routing "hacks" (see swipecommands for navigation on mobile)
       component: Main,
+      props: true
     },
     {
       path: '/recipes/public',
       name: 'publicRecipes',
+      component: Main,
+      props: true
+    },
+    {
+      path: '/recipes/mine',
+      name: 'myRecipes',
+      component: Main,
+      props: true
+    },
+    {
+      path: '/recipes/favorites',
+      name: 'favoriteRecipes',
       component: Main,
       props: true
     },
