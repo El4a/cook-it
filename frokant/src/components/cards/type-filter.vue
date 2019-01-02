@@ -1,12 +1,12 @@
 <template>
   <div class='filter-wrapper'>
     <div class="types">
-      <a href="javascript:void()" @click="changeCategory(null)">All</a>
-      <a href="javascript:void()" @click="changeCategory('drinks')">Drinks</a>
-      <a href="javascript:void()" class="active" @click="changeCategory('amuse')">Appetizers</a>
-      <a href="javascript:void()" @click="changeCategory('main')">Main</a>
-      <a href="javascript:void()" @click="changeCategory('dessert')">Dessert</a>
-      <a href="javascript:void()" @click="changeCategory('breakfast')">Breakfast</a>
+      <a href="javascript:void()" @click="changeCategory(null)" :class="{'active': activeType === null}">All</a>
+      <a href="javascript:void()" @click="changeCategory('drinks')" :class="{'active': activeType === 'drinks'}">Drinks</a>
+      <a href="javascript:void()" @click="changeCategory('amuse')" :class="{'active': activeType === 'amuse'}">Appetizers</a>
+      <a href="javascript:void()" @click="changeCategory('main')" :class="{'active': activeType === 'main'}">Main</a>
+      <a href="javascript:void()" @click="changeCategory('dessert')" :class="{'active': activeType === 'dessert'}">Dessert</a>
+      <a href="javascript:void()" @click="changeCategory('breakfast')" :class="{'active': activeType === 'breakfast'}">Breakfast</a>
     </div>
 
     <router-link to="/new" tag="button" role="button" class="fas fa-plus fa-2x hvr-bob" ></router-link>
@@ -15,8 +15,14 @@
 
 <script>
 export default {
+  data: () => {
+    return {
+      activeType: null
+    }
+  },
   methods: {
     changeCategory(type) {
+      this.activeType = type;
       this.$root.$emit('eventing', type);
     }
   }
@@ -37,7 +43,7 @@ export default {
     color: #fff;
 
     .types {
-      max-width: 50%;
+      max-width: 60%;
       margin: auto;
       display: flex;
       justify-content: space-between;
