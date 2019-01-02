@@ -1,5 +1,6 @@
 <template>
   <div class="recipe-wrapper">
+    {{this.errMsg}}
     <div class="recipe" v-for="recipe in filteredRecipes">
       <div class="content">
         <div class="img-container">
@@ -33,14 +34,17 @@ export default {
     }
   },
   methods: {
-    getRecipes() {
-      return DataService.getRecipes()
-        .then((recipes) => {
-          console.log(recipes.data);
-          this.recipes = recipes.data
-          })
-        .catch(err => this.errMsg = err)
-    }
+    async getRecipes() {
+      try {
+        let response = await DataService.getRecipes();
+        this.recipes = response.data;
+        console.log(response.data)
+      }
+      catch (error) {
+        this.errMsg = error;
+        console.log('Simon says: ', error);
+      }
+     }
   },
   created() {
     this.getRecipes();
