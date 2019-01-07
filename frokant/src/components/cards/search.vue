@@ -37,6 +37,6 @@ export default {
     border-bottom-right-radius: 3px;
     background-color: darkgoldenrod;
     color: #fff;
-    width: 12%;
+    width: 14%;
   }
 </style>

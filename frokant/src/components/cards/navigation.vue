@@ -1,4 +1,5 @@
 <template>
+<div class="header">
 <div class="menu">
   <nav role="navigation">
     <ul>
@@ -15,6 +16,7 @@
     </ul>
   </nav>
   <search></search>
+  </div>
   </div>
 </template>
 
@@ -38,9 +40,13 @@ export default {
 <style lang="scss">
 @import "../../assets/vars.scss";
 
-.menu {
-  font-family: Helvetica;
+.header {
   background-color: #fff;
+.menu {
+  max-width: 1300px;
+  font-family: Helvetica;
+  margin: auto;
+}
   nav {
     font-size: 1.3rem;
     display: inline-block;
