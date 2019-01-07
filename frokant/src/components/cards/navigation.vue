@@ -1,12 +1,10 @@
 <template>
+<div class="menu">
   <nav role="navigation">
     <ul>
       <li>
         <router-link :to="{ name: 'recipes', params: { category: null }}" exact>All</router-link>
         <!-- <a href="javscript:void()" class="active" @click="changeCategory()">All</a> -->
-      </li>
-      <li>
-        <router-link :to="{ name: 'publicRecipes', params: { category: 'published' }}">Public</router-link>
       </li>
       <li>
         <router-link :to="{ name: 'myRecipes', params: { category: 'mine' }}">Mine</router-link>
@@ -16,13 +14,16 @@
       </li>
     </ul>
   </nav>
+  <search></search>
+  </div>
 </template>
 
 <script>
+import Search from '@/components/cards/search.vue';
 export default {
   //name: 'navigation', //why do you need a name here - works without
-  props: {
-    
+  components: {
+    'search': Search
   },
   methods: {
     // changeCategory(cat) {
@@ -37,32 +38,30 @@ export default {
 <style lang="scss">
 @import "../../assets/vars.scss";
 
-nav {
-  margin-top: -3.5rem;
-  text-align: center;
-  font-size: 1.3rem;
+.menu {
   font-family: Helvetica;
-  ul {
+  background-color: #fff;
+  nav {
+    font-size: 1.3rem;
+    display: inline-block;
+    
+    ul {
     list-style: none;
+    margin: 0;
+    padding:0;
     li {
       display: inline-block;
-      background-color: $color-dark;
-      padding: 1rem 0;
-
-      &:first-child {
-        padding-left: 1.5rem;
-      }
-      &:last-child {
-        padding-right: 1.5rem;
-      }
+      padding: 0 1rem;
 
       a {
-        padding: 1rem 1.5rem; 
+        display: inline-block;
+        padding: .75rem 1rem; 
         text-decoration: none;
-        color: #fff;
+        color: $color-text;
 
         &.router-link-active {
-          background-color: $color-theme;
+          color: $color-theme;
+          border-bottom: 3px solid $color-theme;
         }
 
         &:not(.router-link-active):hover {
@@ -70,6 +69,7 @@ nav {
         }
       }
     }
+  }
   }
 }
 </style>
