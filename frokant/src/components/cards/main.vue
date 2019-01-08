@@ -31,6 +31,7 @@
 @import "../../assets/vars.scss";
 
 .container {
+  position: relative;
   max-width: 1300px;
   margin-top: 3rem;
   margin-left: auto;

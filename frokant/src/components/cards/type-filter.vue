@@ -33,6 +33,7 @@ export default {
 @import "../../assets/effects.css";
 
   .filter-wrapper {
+    z-index: 1;
     position: absolute;
     width: 20%;
     font-size: 1.3rem;

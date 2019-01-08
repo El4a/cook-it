@@ -1,5 +1,9 @@
 <template>
   <div>
+    <div class="toggle-published" v-if="category === 'mine'">
+      <input type="checkbox" role="checkbox" id="published"/>
+      <label for='published'>Show only published</label>
+    </div>
     <div class="recipe-wrapper">
       {{this.errMsg}}
       <div class="recipe" v-for="recipe in filteredRecipes" :key="recipe.id">
@@ -16,7 +20,7 @@
         </div>
       </div>
     </div>
-    <router-link to="/new" tag="button" role="button" class="fas fa-plus hvr-bob"></router-link>
+    <router-link to="/new" tag="button" role="button" class="add fas fa-plus hvr-bob"></router-link>
   </div>
 </template>
 
@@ -65,6 +69,21 @@
 <style scoped lang="scss">
   @import "../../assets/vars.scss";
 
+  .toggle-published {
+    position: absolute;
+    top: -1.75rem;
+    right: 1rem;
+    display: inline-block;
+    padding: .25rem .5rem;
+    background-color: $color-secondary;
+    color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.4);
+
+    input {
+      margin-right: .5rem;
+    }
+  }
   .recipe-wrapper {
     display: flex;
     justify-content: flex-start;
@@ -159,7 +178,7 @@
     }
   }
 
-  button {
+  .add {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
