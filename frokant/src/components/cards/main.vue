@@ -1,8 +1,8 @@
 <template>
   <div id="main">
     <Navigation/>
+    <Typefilter/>
     <div class="container">
-      <Typefilter/>
       <Recipes :category="category"/>
     </div>
     
@@ -32,7 +32,6 @@
 
 .container {
   display: flex;
-  position: relative;
   max-width: 1300px;
   margin-top: 3rem;
   margin-left: auto;

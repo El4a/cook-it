@@ -9,7 +9,6 @@
       <a href="javascript:void()" @click="changeCategory('breakfast')" :class="{'active': activeType === 'breakfast'}">Breakfast</a>
     </div>
     <a href="javascript:void()" class="clear" @click="changeCategory(null)" v-if="activeType">Clear filter <i class="fas fa-times-circle"></i></a>
-    <!-- <router-link to="/new" tag="button" role="button" class="fas fa-plus fa-2x hvr-bob" ></router-link> -->
   </div>
 </template>
 
@@ -34,10 +33,11 @@ export default {
 @import "../../assets/effects.css";
 
   .filter-wrapper {
+    position: absolute;
+    width: 20%;
     font-size: 1.3rem;
     font-family: Helvetica;
-    padding-top: 1rem; //to align with recipe flexbox that has unavoidable padding
-    flex-basis: 15%;
+    margin-top: 4rem; //to align with recipe flexbox that has unavoidable padding
     margin-right: 2rem;
 
     .types {
@@ -77,19 +77,5 @@ export default {
         vertical-align: text-bottom;
       }
     }
-    button {
-      //position: absolute;
-      top: -1.2rem;
-      right: 5rem;
-      background-color: $color-dark;
-      color: $color-theme;
-      border: 3px solid $color-background;
-      border-radius: 100%;
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
-
   }
 </style>
