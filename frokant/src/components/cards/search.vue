@@ -14,7 +14,7 @@ export default {
 <style lang="scss" scoped>
 
   .searchbar {
-    display: inline-block;
+    display: flex;
     float: right;
     margin-right: 1rem;
     margin-top: .5rem;
@@ -27,7 +27,8 @@ export default {
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     box-shadow: inset 0 1px 3px #e3e5e7;
-    width: 77%;
+    flex-grow: 6;
+    flex-shrink: 2;
 
   }
   button {
@@ -37,6 +38,6 @@ export default {
     border-bottom-right-radius: 3px;
     background-color: darkgoldenrod;
     color: #fff;
-    width: 14%;
+    flex-grow: 1;
   }
 </style>
