@@ -38,7 +38,6 @@ export default {
     font-size: 1.3rem;
     font-family: Helvetica;
     margin-top: 4rem; //to align with recipe flexbox that has unavoidable padding
-    margin-right: 2rem;
 
     .types {
       background-color: inherit;

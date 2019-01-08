@@ -31,7 +31,6 @@
 @import "../../assets/vars.scss";
 
 .container {
-  display: flex;
   max-width: 1300px;
   margin-top: 3rem;
   margin-left: auto;
