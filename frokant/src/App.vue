@@ -34,4 +34,12 @@ body {
 .banner {
   width: 100%;
 }
+
+a {
+  color: $color-link;
+
+  &:hover {
+    color: $color-link-hover;
+  }
+}
 </style>
