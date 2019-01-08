@@ -66,9 +66,10 @@ export default {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+    flex-basis: 85%;
 
     .recipe {
-      max-width: 20%;
+      max-width: 25%;
       padding: 1rem;
       box-sizing: border-box;
 

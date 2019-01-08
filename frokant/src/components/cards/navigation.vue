@@ -50,6 +50,7 @@ export default {
   nav {
     font-size: 1.3rem;
     display: inline-block;
+    margin-left: 15rem;
     
     ul {
     list-style: none;
@@ -58,6 +59,10 @@ export default {
     li {
       display: inline-block;
       padding: 0 1rem;
+
+      &:first-child {
+        padding-left: 0;
+      }
 
       a {
         display: inline-block;

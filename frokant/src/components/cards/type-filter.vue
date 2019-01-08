@@ -1,15 +1,15 @@
 <template>
   <div class='filter-wrapper'>
     <div class="types">
-      <a href="javascript:void()" @click="changeCategory(null)" :class="{'active': activeType === null}">All</a>
+      <!-- <a href="javascript:void()" @click="changeCategory(null)" :class="{'active': activeType === null}">All</a> -->
       <a href="javascript:void()" @click="changeCategory('drinks')" :class="{'active': activeType === 'drinks'}">Drinks</a>
       <a href="javascript:void()" @click="changeCategory('amuse')" :class="{'active': activeType === 'amuse'}">Appetizers</a>
       <a href="javascript:void()" @click="changeCategory('main')" :class="{'active': activeType === 'main'}">Main</a>
       <a href="javascript:void()" @click="changeCategory('dessert')" :class="{'active': activeType === 'dessert'}">Dessert</a>
       <a href="javascript:void()" @click="changeCategory('breakfast')" :class="{'active': activeType === 'breakfast'}">Breakfast</a>
     </div>
-
-    <router-link to="/new" tag="button" role="button" class="fas fa-plus fa-2x hvr-bob" ></router-link>
+    <a href="javascript:void()" class="clear" @click="changeCategory(null)" v-if="activeType">Clear filter <i class="fas fa-times-circle"></i></a>
+    <!-- <router-link to="/new" tag="button" role="button" class="fas fa-plus fa-2x hvr-bob" ></router-link> -->
   </div>
 </template>
 
@@ -34,27 +34,33 @@ export default {
 @import "../../assets/effects.css";
 
   .filter-wrapper {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
     font-size: 1.3rem;
     font-family: Helvetica;
-    background-color: $color-dark;
-    color: #fff;
+    padding-top: 1rem; //to align with recipe flexbox that has unavoidable padding
+    flex-basis: 15%;
+    margin-right: 2rem;
 
     .types {
-      max-width: 60%;
-      margin: auto;
+      background-color: inherit;
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
+      text-align: center;
       
       a {
+        background-color: #fff;
+        color: $color-text;
         padding: 1rem; 
         text-decoration: none;
-        color: #fff;
+        margin: .25rem 0;
+
+        &:first-of-type {
+          margin-top: 0;
+        }
 
         &.active {
           background-color: $color-theme;
+          color: #fff;
         }
 
         &:not(.active):hover {
@@ -63,8 +69,16 @@ export default {
       }
     }
 
+    .clear {
+      text-decoration: none;
+      font-size: .875rem;
+      
+      i {
+        vertical-align: text-bottom;
+      }
+    }
     button {
-      position: absolute;
+      //position: absolute;
       top: -1.2rem;
       right: 5rem;
       background-color: $color-dark;

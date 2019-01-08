@@ -2,9 +2,10 @@
   <div id="main">
     <Navigation/>
     <div class="container">
+      <Typefilter/>
       <Recipes :category="category"/>
     </div>
-    <Typefilter/>
+    
   </div>
 </template>
 
@@ -26,14 +27,17 @@
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../../assets/vars.scss";
 
 .container {
-  max-width: 1300px;
-  margin: auto;
-  padding-bottom: 60px; //for type filter
+  display: flex;
   position: relative;
+  max-width: 1300px;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 
 </style>
