@@ -9,24 +9,12 @@ module.exports.put = async (event) => {
     Item: JSON.parse(event.body)
   };
 
-  //try {
-    await dynamoDb.put(params).promise();
-    return {
-      statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': true,
-      }
-    };
-  //} 
-  // catch (e) {
-  //     return {
-  //       statusCode: 500,
-  //       headers: {
-  //         'Access-Control-Allow-Origin': '*',
-  //         'Access-Control-Allow-Credentials': true,
-  //       },
-  //       body: e
-  //     } 
-  //   }
+  await dynamoDb.put(params).promise();
+  return {
+    statusCode: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true,
+    }
+  };
 };
