@@ -34,6 +34,13 @@ functions:
           method: put
           path: recipes/{id}
           cors: true
+  createRecipe:
+    handler: createRecipe.put
+    events:
+      - http:
+          method: put
+          path: recipes
+          cors: true
 
 resources:
   Resources:
