@@ -13,12 +13,12 @@ provider:
     - Effect: Allow
       Action:
         - dynamodb:Scan
+        - dynamodb:PutItem
       Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.RECIPES_TABLE}"
   region: eu-west-2
   timeout: 2
   memorySize: 128
 
-  //naar wat verwijst dit just?? backend? frontend?
 functions:
   getRecipes:
     handler: recipes.get
@@ -26,6 +26,13 @@ functions:
       - http:
           method: get
           path: recipes
+          cors: true
+  updateRecipe:
+    handler: updateRecipe.put
+    events:
+      - http:
+          method: put
+          path: recipes/{id}
           cors: true
 
 resources:
