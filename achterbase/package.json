@@ -8,5 +8,8 @@
   "scripts": {
     "deploy": "serverless deploy -v",
     "remove": "serverless remove"
+  },
+  "dependencies": {
+    "uuid": "^3.3.2"
   }
 }
