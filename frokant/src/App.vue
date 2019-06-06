@@ -24,6 +24,12 @@ export default {
 body {
   margin: 0;
   background-color: $color-background;
+  font-size: 16px;
+}
+
+button, input, optgroup, select, textarea {
+  font: inherit;
+  color: inherit; 
 }
 
 #app {
@@ -40,6 +46,18 @@ a {
 
   &:hover {
     color: $color-link-hover;
+  }
+}
+
+input[type="text"] {
+  padding: .4rem;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 3px;
+  box-shadow: inset 0 1px 3px #e3e5e7;
+
+  &:active {
+    border-color: $color-theme;
+    outline: 0;
   }
 }
 </style>
