@@ -6,6 +6,9 @@
   export default {
     getRecipes() {
       return axios.get(baseURL+'recipes');
+    },
+    saveRecipe(recipe) {
+      return axios.put(baseURL+'recipes', recipe);
     }
   };
 </script>
